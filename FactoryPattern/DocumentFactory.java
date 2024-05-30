@@ -2,20 +2,18 @@ package Sample.LLD.DesignPatterns.FactoryPattern;
 
 public class DocumentFactory {
     public Document getDocument(String documentType){
-        if(documentType == null){
-            return null;
-        }
+        Document document;
         if(documentType.equalsIgnoreCase("docx")){
-            return new Docx();
-        }
-        if(documentType.equalsIgnoreCase("pdf")){
-            return new Pdf();
-        }
-        if(documentType.equalsIgnoreCase("word")){
-            return new Word();
+            document = new Docx();
+        } else if(documentType.equalsIgnoreCase("pdf")){
+            document =  new Pdf();
+        }else if(documentType.equalsIgnoreCase("word")){
+            document = new Word();
+        } else {
+            document = null;
         }
 
-        return null;
+        return document;
     }
     
 }
